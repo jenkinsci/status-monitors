@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/server_information">
+        <edu.hm.cs.jenkins.monitor.view.settings.ExtendedTextPreference
+                android:title="@string/server_address"
+                android:summary="%s"
+                android:hint="@string/set_your_hostname"
+                android:key="@string/hostname_key"/>
+
+        <edu.hm.cs.jenkins.monitor.view.settings.ExtendedTextPreference
+                android:title="@string/server_port"
+                android:summary="%s"
+                android:hint="@string/set_your_server_port"
+                android:inputType="number"
+                android:key="@string/port_key"/>
+
+        <CheckBoxPreference
+                android:title="@string/authentication_needed"
+                android:summary="@string/set_authentication_needed"
+                android:key="@string/authentication_needed_key"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/user_details">
+        <edu.hm.cs.jenkins.monitor.view.settings.ExtendedTextPreference
+                android:title="@string/username"
+                android:summary="%s"
+                android:hint="@string/set_your_username"
+                android:key="@string/username_key"
+                android:dependency="@string/authentication_needed_key"/>
+
+        <edu.hm.cs.jenkins.monitor.view.settings.ExtendedTextPreference
+                android:title="@string/authentication_token"
+                android:summary="%s"
+                android:hint="@string/set_your_authentication_token"
+                android:key="@string/authentication_token_key"
+                android:dependency="@string/authentication_needed_key"/>
+    </PreferenceCategory>
+</PreferenceScreen>

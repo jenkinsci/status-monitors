@@ -1,0 +1,19 @@
+<FindBugsFilter>
+
+    <Match>
+        <Class name="edu.hm.cs.jenkins.web.client.BaseWebTest" />
+        <field name="wireMockRule" />
+        <Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+    <Match>
+        <Class name="edu.hm.cs.jenkins.web.security.AuthorizationInterceptorTest" />
+        <field name="interceptor" />
+        <Bug pattern="URF_UNREAD_FIELD" />
+    </Match>
+    <Match>
+        <Class name="edu.hm.cs.jenkins.web.security.AuthorizationInterceptorTest" />
+        <field name="interceptor" />
+        <Bug pattern="UWF_NULL_FIELD" />
+    </Match>
+
+</FindBugsFilter>

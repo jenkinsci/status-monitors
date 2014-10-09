@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="roboguice_modules" tools:ignore="UnusedResources">
+        <item>edu.hm.cs.jenkins.monitor.BindingModule</item>
+    </string-array>
+</resources>

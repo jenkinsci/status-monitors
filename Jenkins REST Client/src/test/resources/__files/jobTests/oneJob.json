@@ -1,0 +1,11 @@
+{
+    "jobs": [
+        {
+            "description": "Test-Description",
+            "displayName": "SmartJenkins",
+            "name": "SmartJenkins",
+            "url": "http://192.168.178.37:8080/job/SmartJenkins/",
+            "color": "blue"
+        }
+    ]
+}

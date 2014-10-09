@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Key of Preferences (at this place because it is only one place to change these keys -->
+    <string name="hostname_key">hostname</string>
+    <string name="port_key">port</string>
+    <string name="authentication_token_key">authentication</string>
+    <string name="username_key">username</string>
+    <string name="authentication_needed_key">authenticationNeeded</string>
+</resources>

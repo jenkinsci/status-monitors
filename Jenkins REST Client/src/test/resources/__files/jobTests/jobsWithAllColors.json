@@ -1,0 +1,46 @@
+{
+    "jobs": [
+        {
+            "color": "red"
+        },
+        {
+            "color": "red_anime"
+        },
+        {
+            "color": "yellow"
+        },
+        {
+            "color": "yellow_anime"
+        },
+        {
+            "color": "blue"
+        },
+        {
+            "color": "blue_anime"
+        },
+        {
+            "color": "grey"
+        },
+        {
+            "color": "grey_anime"
+        },
+        {
+            "color": "disabled"
+        },
+        {
+            "color": "disabled_anime"
+        },
+        {
+            "color": "aborted"
+        },
+        {
+            "color": "aborted_anime"
+        },
+        {
+            "color": "notbuilt"
+        },
+        {
+            "color": "notbuilt_anime"
+        }
+    ]
+}

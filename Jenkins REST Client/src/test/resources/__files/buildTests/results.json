@@ -1,0 +1,19 @@
+{
+    "builds": [
+        {
+            "result": "SUCCESS"
+        },
+        {
+            "result": "FAILURE"
+        },
+        {
+            "result": "UNSTABLE"
+        },
+        {
+            "result": "NOT_BUILT"
+        },
+        {
+            "result": "ABORTED"
+        }
+    ]
+}

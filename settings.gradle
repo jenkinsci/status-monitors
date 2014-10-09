@@ -1,0 +1,4 @@
+include 'Simple Jenkins Monitor',
+        'Jenkins REST Client',
+        'Jenkins Desktop Notifier',
+        'Simple Jenkins Monitor:Support v4 PreferenceFragment'

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!-- Headers -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e1e2ea"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/small_padding"
+        android:paddingTop="@dimen/small_padding">
+
+        <!--  Header 1 -->
+        <TextView
+            android:id="@+id/build_number_header"
+            android:layout_width="@dimen/width_set_by_weight"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_weight="0.3"
+            android:text="@string/build_number"
+            android:textSize="@dimen/big_text"
+            android:textStyle="bold" />
+        <!-- Header 2 -->
+        <TextView
+            android:id="@+id/build_duration_header"
+            android:layout_width="@dimen/width_set_by_weight"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_weight="0.5"
+            android:text="@string/duration"
+            android:textSize="@dimen/big_text"
+            android:textStyle="bold" />
+        <!-- Header 3 -->
+        <TextView
+            android:id="@+id/build_result_header"
+            android:layout_width="@dimen/width_set_by_weight"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal"
+            android:text="@string/result"
+            android:textSize="@dimen/big_text"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <!-- Seperator -->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ff000000" />
+    <!-- Actual list (id automatically used by ListFragment! So not change id) -->
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent" />
+
+</LinearLayout>

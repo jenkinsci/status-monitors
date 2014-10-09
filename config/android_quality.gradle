@@ -1,0 +1,49 @@
+apply from : '../config/quality.gradle'
+
+check.dependsOn 'checkstyle', 'pmd', 'jacoco'
+
+task checkstyle(type: Checkstyle) {
+    configFile file("${rootProject.rootDir}/config/checkstyle/checkstyle.xml")
+    source 'src/main/java'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    classpath = files()
+}
+
+task pmd(type: Pmd) {
+    ruleSetFiles = files("${project.rootDir}/config/pmd/pmd-ruleset.xml")
+    ignoreFailures = true
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+def coverageSourceDirs = [
+        'src/main/java',
+        'src/gen'
+]
+
+task jacoco(type: JacocoReport, dependsOn: "test") {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    // Class R is used, but usage will not be covered, so ignore this class from report
+    classDirectories = fileTree(
+            dir: './build/intermediates/classes/debug',
+            excludes: ['**/R.class',
+                       '**/R$*.class'
+            ])
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('build/jacoco/testDebug.exec')
+}

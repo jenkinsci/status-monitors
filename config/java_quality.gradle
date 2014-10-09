@@ -1,0 +1,17 @@
+apply from : '../config/quality.gradle'
+apply plugin: 'findbugs'
+        ''
+jacocoTestReport.dependsOn(test)
+check.dependsOn(jacocoTestReport)
+
+findbugs {
+    excludeFilter = file("../config/findbugs/findbugs-exclusion-filter.xml")
+    ignoreFailures = true
+}
+
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}

@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+apply plugin: 'robolectric'
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion '20'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 18
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    sourceSets {
+        androidTest {
+            setRoot('src/test')
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        //pruefen ob bei neuer Version von Robolectric noch benoetigt
+        disable 'OldTargetApi'
+    }
+}
+
+robolectric {
+    include '**/*Test.class'
+    exclude '**/Base*.class'
+}
+
+dependencies {
+    compile project(':Jenkins REST Client'),
+            project(':Simple Jenkins Monitor:Support v4 PreferenceFragment')
+
+    compile 'com.google.inject:guice:4.0-beta5:no_aop'
+    compile('org.roboguice:roboguice:2.0') {
+        exclude module: 'guice' //old version used by roboguice prints FileNotFoundException at start
+        exclude module: 'asm'
+        exclude module: 'cglib'
+    }
+
+    androidTestCompile('org.robolectric:robolectric:2.3') {
+        exclude module: 'classworlds'
+        exclude module: 'maven-artifact'
+        exclude module: 'maven-artifact-manager'
+        exclude module: 'maven-error-diagnostics'
+        exclude module: 'maven-model'
+        exclude module: 'maven-plugin-registry'
+        exclude module: 'maven-profile'
+        exclude module: 'maven-project'
+        exclude module: 'maven-settings'
+        exclude module: 'nekohtml'
+        exclude module: 'plexus-container-default'
+        exclude module: 'plexus-interpolation'
+        exclude module: 'plexus-utils'
+        exclude module: 'wagon-file'
+        exclude module: 'wagon-http-lightweight'
+        exclude module: 'wagon-http-shared'
+        exclude module: 'wagon-provider-api'
+        exclude module: 'httpclient'
+        exclude module: 'commons-logging'
+    }
+}

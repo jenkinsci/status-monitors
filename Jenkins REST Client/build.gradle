@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+version = '1.0'
+
+dependencies {
+    compile 'com.squareup.retrofit:retrofit:1.6.1',
+            'net.iharder:base64:2.3.8'
+
+    testCompile 'com.github.tomakehurst:wiremock:1.47'
+}

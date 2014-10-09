@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+      tools:context="edu.hm.cs.jenkins.monitor.JenkinsMonitor">
+
+    <item android:id="@+id/trigger_builds" android:showAsAction="ifRoom" android:title="@string/trigger_build"
+          android:icon="@drawable/trigger_build"/>
+    <item android:id="@+id/refresh_list" android:showAsAction="ifRoom" android:title="@string/refresh"
+          android:icon="@drawable/refresh_icon"/>
+</menu>

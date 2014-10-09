@@ -1,0 +1,19 @@
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'jacoco'
+
+def checkstyleConfigDir = new File(buildscript.sourceFile.parentFile, 'checkstyle')
+
+checkstyle {
+    configFile = new File(checkstyleConfigDir, "checkstyle.xml")
+    configProperties.checkstyleConfigDir = checkstyleConfigDir
+    ignoreFailures = true
+}
+
+pmd {
+    ignoreFailures = true
+}
+
+jacoco {
+    toolVersion = "0.7.2.201409121644"
+}

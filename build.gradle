@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.13.+',
+                  'org.robolectric:robolectric-gradle-plugin:0.12.+'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+ext.commonTestLibraries = ['junit:junit:4.11', 'org.mockito:mockito-core:1.9.5']
+
+subprojects {
+    group = 'edu.hm.cs.jenkins'
+
+    repositories {
+        mavenCentral()
+    }
+
+    javaModules(plugins) {
+        project.apply {
+            from '../config/java_quality.gradle'
+        }
+
+        project.dependencies {
+            testCompile commonTestLibraries
+        }
+    }
+
+    androidModules(plugins) {
+        project.apply {
+            from '../config/android_quality.gradle'
+        }
+
+        project.dependencies {
+            androidTestCompile commonTestLibraries
+        }
+    }
+}
+/**
+ * Allows it to configure only projects with the Java plugin.
+ * Attention: The Android plugin is not the same as the Android Library plugin.
+ *
+ * @param plugins collection which contains all plugins added to the projects
+ * @param closure configuration closure to execute
+ */
+def javaModules(PluginCollection plugins, Closure closure) {
+    plugins.withType(JavaPlugin).whenPluginAdded {
+        closure.call()
+    }
+}
+
+/**
+ * Allows it to configure only projects with the Android plugin.
+ * Attention: The Android plugin is not the same as the Android Library plugin.
+ *
+ * @param plugins collection which contains all plugins added to the projects
+ * @param closure configuration closure to execute
+ */
+def androidModules(PluginCollection plugins, Closure closure) {
+    plugins.whenPluginAdded {
+        if (it.class.name.equals("com.android.build.gradle.AppPlugin")) {
+            closure.call()
+        }
+    }
+}
